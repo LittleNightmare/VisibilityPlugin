@@ -1,12 +1,12 @@
 {
   "version": 1,
   "dependencies": {
-    "net6.0-windows7.0": {
+    "net5.0-windows7.0": {
       "Dalamud.ContextMenu": {
         "type": "Direct",
-        "requested": "[1.1.0, )",
-        "resolved": "1.1.0",
-        "contentHash": "NDaq7blwyGDVtmnt6F5w5lpuxR9e6xspgPxpXRAwoS9LAVjR9TQRjG8xY0UwS7dv41micptE36jZBc5tPltr3g=="
+        "requested": "[1.1.1, )",
+        "resolved": "1.1.1",
+        "contentHash": "YwqdkjEQKHW7VGGmWxhBwMpuN9twsLaO6Lm05uQ1LosN2iEKNLrAMB8LlUy8qqCojlrRnhiwece/Z6Ppvfgi6g=="
       },
       "DalamudPackager": {
         "type": "Direct",

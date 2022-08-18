@@ -37,7 +37,8 @@ namespace Visibility
 
 		public static string GetLastname(this GameObject actor)
 		{
-			return actor.Name.TextValue.Split(' ')[1];
+			var text = actor.Name.TextValue.Split(' ');
+			return text.Length==2 ? text[1] : string.Empty;
 		}
 
 		public static string ByteToString(this byte[] arr)

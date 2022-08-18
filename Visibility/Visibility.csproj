@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <LangVersion>default</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -55,7 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dalamud.ContextMenu" Version="1.1.0" />
+    <PackageReference Include="Dalamud.ContextMenu" Version="1.1.1" />
     <PackageReference Include="DalamudPackager" Version="2.1.7" />
   </ItemGroup>
   <ItemGroup>

@@ -11,13 +11,13 @@ namespace Visibility.Void
 		[JsonIgnore]
 		public string Name
 		{
-			get => $"{this.Firstname} {this.Lastname}";
+			get => $"{this.Firstname} {(string.IsNullOrEmpty(this.Lastname) ? "": this.Lastname)}";
 			set
 			{
 				var name = value.Split(' ');
 				this.Firstname = name[0].ToUppercase();
-				this.Lastname = name[1].ToUppercase();
-
+				this.Lastname = name.Length==2 ? name[1].ToUppercase() : string.Empty;
+				
 				var nameBytes = Encoding.UTF8.GetBytes(this.Name + '\0');
 				this.NameBytes = nameBytes.Length < 64 ? nameBytes : nameBytes.Take(64).ToArray();
 			}
@@ -76,7 +76,7 @@ namespace Visibility.Void
 			string reason,
 			bool manual) : this()
 		{
-			this.Name = $"{firstname} {lastname}";
+			this.Name = $"{firstname} {(string.IsNullOrEmpty(lastname) ? "" : " " + lastname)}";
 			this.HomeworldName = homeworldName;
 			this.Time = time;
 			this.HomeworldId = homeworldId;
