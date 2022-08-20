@@ -356,9 +356,15 @@ namespace Visibility
 				return;
 			}
 
-			var args = arguments.Split(new[] { ' ' }, 4);
+			var i = 0;
+            if (ClientState.ClientLanguage == Dalamud.ClientLanguage.ChineseSimplified && arguments.Split(" ").Length < 4)
+            {
+				i = 1;
+            }
 
-			if (args.Length < 3)
+            var args = arguments.Split(new[] { ' ' }, 4-i);
+
+			if (args.Length < 3-i)
 			{
 				ChatGui.Print(
 					this.PluginLocalization.NotEnoughArgumentsError(this.PluginLocalization.VoidListName));
@@ -368,16 +374,20 @@ namespace Visibility
 			var world = DataManager.GetExcelSheet<World>()?.SingleOrDefault(
 				x =>
 					x.DataCenter.Value?.Region != 0 &&
-					x.Name.ToString().Equals(args[2], StringComparison.InvariantCultureIgnoreCase));
+					x.Name.ToString().Equals(args[2-i], StringComparison.InvariantCultureIgnoreCase));
 
 			if (world == default(World))
 			{
 				ChatGui.Print(
-					this.PluginLocalization.InvalidWorldNameError(this.PluginLocalization.VoidListName, args[2]));
+					this.PluginLocalization.InvalidWorldNameError(this.PluginLocalization.VoidListName, args[2-i]));
 				return;
 			}
 
-			var playerName = $"{args[0].ToUppercase()} {args[1].ToUppercase()}";
+			var playerName = $"{args[0].ToUppercase()}";
+            if (i == 0)
+            {
+				playerName += $" {args[1].ToUppercase()}";
+            }
 
 			var voidItem = ObjectTable
 				.SingleOrDefault(
@@ -390,9 +400,9 @@ namespace Visibility
 					playerName,
 					world.Name,
 					world.RowId,
-					args.Length == 3 ? string.Empty : args[3],
+					args.Length == 3-i ? string.Empty : args[3-i],
 					command == "VoidUIManual")
-				: new VoidItem(actor, args.Length == 3 ? string.Empty : args[3], command == "VoidUIManual");
+				: new VoidItem(actor, args.Length == 3-i ? string.Empty : args[3-i], command == "VoidUIManual");
 
 			var playerString = new SeString(
 				new PlayerPayload(playerName, world.RowId),
@@ -461,10 +471,15 @@ namespace Visibility
 					this.PluginLocalization.NoArgumentsError(this.PluginLocalization.WhitelistName));
 				return;
 			}
+            var i = 0;
+            if (ClientState.ClientLanguage == Dalamud.ClientLanguage.ChineseSimplified && arguments.Split(" ").Length < 4)
+            {
+				i = 1;
+            }
 
-			var args = arguments.Split(new[] { ' ' }, 4);
-
-			if (args.Length < 3)
+			var args = arguments.Split(new[] { ' ' }, 4-i);
+            
+			if (args.Length < 3-i)
 			{
 				ChatGui.Print(
 					this.PluginLocalization.NotEnoughArgumentsError(this.PluginLocalization.WhitelistName));
@@ -474,16 +489,20 @@ namespace Visibility
 			var world = DataManager.GetExcelSheet<World>()?.SingleOrDefault(
 				x =>
 					x.DataCenter.Value?.Region != 0 &&
-					x.Name.ToString().Equals(args[2], StringComparison.InvariantCultureIgnoreCase));
+					x.Name.ToString().Equals(args[2-i], StringComparison.InvariantCultureIgnoreCase));
 
 			if (world == default(World))
 			{
 				ChatGui.Print(
-					this.PluginLocalization.InvalidWorldNameError(this.PluginLocalization.WhitelistName, args[2]));
+					this.PluginLocalization.InvalidWorldNameError(this.PluginLocalization.WhitelistName, args[2-i]));
 				return;
 			}
-
-			var playerName = $"{args[0].ToUppercase()} {args[1].ToUppercase()}";
+			var playerName = $"{args[0].ToUppercase()}";
+			if (i == 0)
+            {
+				playerName += $" {args[1].ToUppercase()}";
+            }
+			
 
 			var actor = ObjectTable.SingleOrDefault(
 				x =>
@@ -495,9 +514,9 @@ namespace Visibility
 					playerName,
 					world.Name,
 					world.RowId,
-					args.Length == 3 ? string.Empty : args[3],
-					command == "WhitelistUIManual")
-				: new VoidItem(actor, args.Length == 3 ? string.Empty : args[3], command == "WhitelistUIManual");
+                    args.Length == 3 - i ? string.Empty : args[3 - i],
+                    command == "WhitelistUIManual")
+				: new VoidItem(actor, args.Length == 3-i ? string.Empty : args[3-i], command == "WhitelistUIManual");
 
 			var playerString = new SeString(
 				new PlayerPayload(playerName, world.RowId),

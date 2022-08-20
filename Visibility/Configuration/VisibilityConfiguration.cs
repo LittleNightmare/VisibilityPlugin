@@ -28,12 +28,14 @@ namespace Visibility.Configuration
 		[NonSerialized]
 		private readonly byte[][] buffer =
 		{
-			new byte[16],
-			new byte[16],
+			// firstName, full name in CN. idk why it crash. the max of full name is 6 words (12 bytes)
+			new byte[16+16],
+			new byte[16+16],
 			new byte[128],
 			new byte[128],
-			new byte[16],
-			new byte[16],
+			// firstName, full name in CN. idk why it crash. the max of full name is 6 words (12 bytes)
+			new byte[16+16],
+			new byte[16+16],
 			new byte[128],
 			new byte[128],
 			new byte[128]

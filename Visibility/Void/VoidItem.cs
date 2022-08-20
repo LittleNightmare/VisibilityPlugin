@@ -11,7 +11,7 @@ namespace Visibility.Void
 		[JsonIgnore]
 		public string Name
 		{
-			get => $"{this.Firstname} {(string.IsNullOrEmpty(this.Lastname) ? "": this.Lastname)}";
+			get => $"{this.Firstname}{(string.IsNullOrEmpty(this.Lastname) ? "": " "+this.Lastname)}";
 			set
 			{
 				var name = value.Split(' ');
@@ -76,7 +76,7 @@ namespace Visibility.Void
 			string reason,
 			bool manual) : this()
 		{
-			this.Name = $"{firstname} {(string.IsNullOrEmpty(lastname) ? "" : " " + lastname)}";
+			this.Name = $"{firstname}{(string.IsNullOrEmpty(lastname) ? "" : " " + lastname)}";
 			this.HomeworldName = homeworldName;
 			this.Time = time;
 			this.HomeworldId = homeworldId;
