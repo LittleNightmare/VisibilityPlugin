@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <LangVersion>default</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -21,10 +21,9 @@
   <PropertyGroup>
     <DefaultItemExcludes>$(DefaultItemExcludes);**/Properties/Resources.*</DefaultItemExcludes>
     <SignAssembly>false</SignAssembly>
-    <RepositoryUrl>https://github.com/SheepGoMeh/VisibilityPlugin</RepositoryUrl>
+    <RepositoryUrl>https://github.com/LittleNightmare/VisibilityPlugin</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dalamud">

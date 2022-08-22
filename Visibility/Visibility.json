@@ -4,8 +4,8 @@
   "InternalName": "Visibility",
   "Description": "Allows you to hide players, pets, chocobos and minions.\nIncludes VoidList, which is a better blacklist.\nAccessible via /pvis\nMore information available via /xlhelp",
   "Punchline": "Allows you to hide players, pets, chocobos and minions.",
-  "Tags": ["Blacklist", "Void", "VoidList", "Ban", "Hide", "Visibility", "QoL"],
-  "RepoUrl": "https://github.com/SheepGoMeh/VisibilityPlugin",
+  "Tags": [ "Blacklist", "Void", "VoidList", "Ban", "Hide", "Visibility", "QoL" ],
+  "RepoUrl": "https://github.com/LittleNightmare/VisibilityPlugin",
   "ApplicableVersion": "any",
   "DalamudApiLevel": 6
 }
